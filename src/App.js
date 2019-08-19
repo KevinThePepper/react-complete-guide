@@ -15,7 +15,7 @@ class App extends Component {
 
     nameChangeHandler = (event, id) => {
         // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-        const personIndex = this.state.persons.find(p => p.id === id);
+        const personIndex = this.state.persons.findIndex(p => p.id === id);
         const person = {...this.state.persons[personIndex]};    // make copy rather than reference
         person.name = event.target.value;
 
