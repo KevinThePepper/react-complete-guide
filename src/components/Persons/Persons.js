@@ -10,7 +10,7 @@ class Persons extends Component {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log('[Persons.js] shouldComponentUpdate');
-        return true;
+        return nextProps.persons !== this.props.persons;
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
