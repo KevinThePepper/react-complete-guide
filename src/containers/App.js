@@ -4,6 +4,11 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        console.log('[App.js] constructor')
+    }
+
     state = {
         persons: [
             {id: 'max1', name: 'Max', age: 28},
@@ -13,6 +18,15 @@ class App extends Component {
         otherState: 'Some other value',
         showPersons: false,
     };
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStateFromProps');
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
 
     nameChangeHandler = (event, id) => {
         // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
@@ -38,6 +52,7 @@ class App extends Component {
     };
 
     render() {
+        console.log('[App.js] render');
         let persons = null;
 
         if (this.state.showPersons) {
